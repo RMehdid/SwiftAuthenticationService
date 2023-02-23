@@ -8,7 +8,7 @@ You can install SwiftAuthenticationService using Swift Package Manager. To do th
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/RMehdid/SwiftAuthenticationService.git", .upToNextMajor(from: "1.0.0"))
+    .package(url: "https://github.com/RMehdid/SwiftAuthenticationService.git", branch: "main")
 ]
 ```
 
