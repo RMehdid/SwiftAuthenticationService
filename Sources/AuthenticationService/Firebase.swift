@@ -8,12 +8,12 @@
 import Foundation
 import FirebaseAuth
 
-public class FirebasePhoneAuth {
-    static func getUser(success: @escaping (User?) -> Void) {
+public struct FirebasePhoneAuth {
+    public static func getUser(success: @escaping (User?) -> Void) {
         success(Auth.auth().currentUser)
     }
     
-    static func signOut() {
+    public static func signOut() {
         do {
             try Auth.auth().signOut()
         } catch let signOutError as NSError {
@@ -21,7 +21,7 @@ public class FirebasePhoneAuth {
         }
     }
     
-    static func refreshToken(success: @escaping (String) -> Void) {
+    public static func refreshToken(success: @escaping (String) -> Void) {
         getUser { currentUser in
             guard let currentUser = currentUser else {
                 debugPrint("no user found")
@@ -44,7 +44,7 @@ public class FirebasePhoneAuth {
     }
     
 #if !os(macOS)
-    static func login(phone: String, success: @escaping (String) -> Void, failed: @escaping (String?) -> Void) {
+    public static func login(phone: String, success: @escaping (String) -> Void, failed: @escaping (String?) -> Void) {
         PhoneAuthProvider.provider(auth: Auth.auth())
         
         PhoneAuthProvider.provider().verifyPhoneNumber("+213\(phone)", uiDelegate: nil){ verificationID, error in
@@ -58,7 +58,7 @@ public class FirebasePhoneAuth {
     }
     
     
-    static func verifyOTP(phone: String, verificationID: String, verificationCode: String, success: @escaping (String) -> Void) {
+    public static func verifyOTP(phone: String, verificationID: String, verificationCode: String, success: @escaping (String) -> Void) {
         let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationID, verificationCode: verificationCode)
         
         Auth.auth().signIn(with: credential) { _, error in
