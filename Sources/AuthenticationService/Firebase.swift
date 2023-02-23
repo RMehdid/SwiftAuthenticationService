@@ -8,7 +8,7 @@
 import Foundation
 import FirebaseAuth
 
-class FirebasePhoneAuth {
+public class FirebasePhoneAuth {
     static func getUser(success: @escaping (User?) -> Void) {
         success(Auth.auth().currentUser)
     }
