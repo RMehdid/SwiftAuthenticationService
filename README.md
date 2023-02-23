@@ -1,6 +1,6 @@
 # SwiftAuthenticationService
 
-SwiftAuthenticationService is a Swift package that provides an easy-to-use authentication service for iOS apps. The package uses Firebase Phone Authentication and JWT tokens to handle user authentication.
+SwiftAuthenticationService is a Swift package that provides an easy-to-use authentication service for iOS apps. The package uses Firebase Phone Authentication to handle user authentication.
 
 ## Installation
 
